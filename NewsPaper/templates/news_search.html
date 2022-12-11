@@ -4,12 +4,16 @@
 {% load custom_tags %}
 
 {% block title %}
-News
+News Search
 {% endblock title %}
 
 {% block content %}
-    <h1> Все публикации </h1>
-    <h3>{{ news|length }}</h3>
+    <h1> Поиск публикации: </h1>
+
+   <form action="" method="get">
+       {{ filterset.form.as_p }}
+       <input type="submit" value="Найти" />
+   </form>
    <hr>
    {% if news %}
        <table>
