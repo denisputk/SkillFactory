@@ -46,5 +46,7 @@ News
            <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ '>>' }}</a>
        {% endif %}
    {% endif %}
-
+{% if is_not_premium %}
+<button> <a href="sign/upgrade/"> Хочу Premium!</a> </button>
+{% endif %}
 {% endblock content %}
