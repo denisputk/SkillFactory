@@ -140,7 +140,7 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_URL = "/account/login"
-LOGIN_REDIRECT_URL = "/news"
+LOGIN_REDIRECT_URL = "/account"
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
