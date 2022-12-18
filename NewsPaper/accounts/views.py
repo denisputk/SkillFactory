@@ -17,7 +17,7 @@ class AccountView(LoginRequiredMixin, TemplateView):
 @login_required
 def upgrade_me(request):
     user = request.user
-    editor_group = Group.objects.get(name='editor')
-    if not request.user.groups.filter(name='editor').exists():
-        editor_group.user_set.add(user)
-    return redirect('/account/')
+    authors_group = Group.objects.get(name='authors')
+    if not request.user.groups.filter(name='authors').exists():
+        authors_group.user_set.add(user)
+    return redirect('/')
