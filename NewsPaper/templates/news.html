@@ -9,19 +9,27 @@ News
 
 {% block content %}
     <h1> Все публикации </h1>
-    <h3>{{ news|length }}</h3>
+    <h3>Количество публикаций: {{ news|length }}</h3>
    <hr>
    {% if news %}
        <table>
            <tr>
                <td> Заголовок </td>
+               <td> Категория </td>
                <td> Дата публикации </td>
                <td> Краткое содержание </td>
            </tr>
 
            {% for new in news %}
            <tr>
-               <td>{{ new.title|censor }}</td>
+               <td>
+                   <a href="{% url 'news_detail' new.id %}">{{ new.title|censor }}</a>
+               </td>
+               <td>
+                   {% for category in new.category.all %}
+                        <a href="{% url 'category_list' category.id %}">{{category}}</a>
+                   {% endfor %}
+               </td>
                <td>{{ new.post_created|date:'d M Y' }}</td>
                <td>{{ new.post_content|truncatewords:20|censor }}</td>
            </tr>

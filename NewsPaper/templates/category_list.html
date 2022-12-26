@@ -1,0 +1,32 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block title %}
+    News List
+{% endblock title %}
+
+{% block content %}
+<h1 class="text-center">Новости<span class="text-muted fs-6 fw-normal"></span></h1>
+    {% if is_not_subscriber %}
+        <p class="text-center"><a href="{% url 'subscribe' category.id %}" class="btn btn-secondary btn-sm">Подписаться</a> </p>
+    {% endif %}
+<hr>
+
+<ul class="list-group list-group-flush">
+    {% for newspost in category_news_list %}
+        <li class="list-group-item">
+            <small class="fw-bold">{{newspost.date | date:'d M Y'}} </small>
+            <a href="{% url 'news_detail' newspost.id %}">{{newspost.title}}</a>
+            <small class="text-muted">(автор: {{newspost.author}})</small><br>
+            <small class="fw-bold">категории:
+                {% for category in newspost.category.all %}
+                    <a href="{% url 'category_list' category.id %}">{{category}}</a>
+                {% endfor %}
+            </small>
+            <p>{{newspost.text | truncatechars:210}}</p>
+        </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock content %}

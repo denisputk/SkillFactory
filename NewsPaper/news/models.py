@@ -19,9 +19,12 @@ class Author(models.Model):
                 self.author_rating += comm_to_post.comm_rating
         self.save()
 
+    def __str__(self):
+        return f'{self.user.username}'
 
 class Category(models.Model):
     category_name = models.CharField(max_length=50, unique=True)
+    subscribers = models.ManyToManyField(User, related_name='categories')
 
     def __str__(self):
         return f'{self.category_name}'
@@ -35,7 +38,7 @@ class Post(models.Model):
     post_content = models.TextField()
     post_rating = models.IntegerField(default=0)
 
-    post_category = models.ManyToManyField(Category, through="PostCategory")
+    category = models.ManyToManyField(Category, through="PostCategory")
 
     @property
     def rating(self):
@@ -70,6 +73,9 @@ class Post(models.Model):
 class PostCategory(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.post.title} | {self.category.category_name}'
 
 
 class Comment(models.Model):
