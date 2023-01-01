@@ -23,7 +23,7 @@ def my_job():
     categories = set(posts.values_list('category__category_name', flat=True))
     subscribers = set(Category.objects.filter(category_name__in=categories).values_list('subscribers__email', flat=True))
     html_content = render_to_string(
-        'daily_post.html',
+        'weekly_newsletter.html',
         {
             'link': settings.SITE_URL,
             'posts': posts,
