@@ -28,7 +28,7 @@ News Search
                <td>{{ new.title|censor }}</td>
                <td>{{ new.post_created|date:'d M Y' }}</td>
                <td>{{ new.post_content|truncatewords:20|censor }}</td>
-           </tr>
+           </>
            {% endfor %}
        </table>
    {% else %}
