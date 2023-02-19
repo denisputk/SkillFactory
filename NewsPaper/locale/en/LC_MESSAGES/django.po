@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-18 13:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\flatpages\default.html:46
+msgid "Список Новостей"
+msgstr "News List"
+
+#: .\templates\flatpages\default.html:51
+msgid "Поиск"
+msgstr "Search"
+
+#: .\templates\flatpages\default.html:54
+msgid "Войти"
+msgstr "Sign In"
+
+#: .\templates\flatpages\default.html:57
+msgid "Создать"
+msgstr "Create"
+
+#: .\templates\news.html:12
+msgid "Все публикации"
+msgstr "All News"
+
+#: .\templates\news.html:13
+msgid "Количество публикаций:"
+msgstr "Number of News:"
+
+#: .\templates\news.html:18
+msgid "Заголовок"
+msgstr "Title"
+
+#: .\templates\news.html:19
+msgid "Категория"
+msgstr "Categories"
+
+#: .\templates\news.html:20
+msgid "Дата публикации"
+msgstr "Date"
+
+#: .\templates\news.html:21
+msgid "Краткое содержание"
+msgstr "Summary"
+
+#: .\templates\news.html:40
+msgid "Новостей нет!"
+msgstr "No News!"
+
+#~ msgid "Это тестовый текст для перевода"
+#~ msgstr "This is a test text for translation"

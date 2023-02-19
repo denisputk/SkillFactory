@@ -1,4 +1,6 @@
-from django.http import HttpResponse
+import pytz
+from datetime import datetime
+from django.http.response import HttpResponse
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import (
@@ -8,6 +10,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
 from django.shortcuts import get_object_or_404, render
+from django.utils import timezone
+from django.shortcuts import redirect
 
 from .models import Post, Category
 from .filters import PostFilter
@@ -111,7 +115,16 @@ def subscribe(request, pk):
     return render(request, 'subscribe.html', {'category': category, 'message': message})
 
 
-class IndexView(View):
+class Index(View):
     def get(self, request):
-        hello.delay()
-        return HttpResponse('Hello!')
+        current_time = timezone.now()
+        context = {
+            'current_time': timezone.now(),
+            'timezones': pytz.common_timezones
+        }
+
+        return HttpResponse(render(request, 'news.html', context))
+
+    def post(self, request):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('/news')
